@@ -1,0 +1,152 @@
+ {{> header}}
+
+<body>
+    <div class="container">
+
+        <div class="col s12">
+           
+                {{> sidebar}}
+
+     
+
+            <main class="col s12">
+                <div class="row">
+                    <div class="col s12 left">
+                        <h4 class="left-align ">Aplikasi GET API Github</h4>
+                    </div>
+                </div>
+                <div class="col s12">
+                    <div class="row">
+                        <div class="input-field col s4">
+                            <i class="material-icons prefix grey-text text-darken-2">location_searching</i>
+                            <input placeholder="Username Github Anda" value="faisalarkan21" name="searchId" id="searchId" type="text" class="validate">
+                            <label for="searchId">Cari User</label>
+                        </div>
+                        <div class="input-field col s3">
+                            <a class="waves-effect waves-light grey darken-3 btn tooltipped" data-position="bottom" data-delay="50" data-tooltip="Kirim !"
+                                id="btn-cari"><i class="material-icons right">send</i>Cari</a>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col s12 card z-depth-5">
+                            <div style="padding-top:20px; padding-bottom:50px;" class="card-content">
+                                <div class="row">
+                                    <div class="col s4">
+                                        <h4 class="left-align flow-text">Data Profile</h4>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col s3">
+                                        <label class="left-align" for="">Photo Profil</label>
+                                    </div>
+                                </div>
+                                <div class="row" style="">
+                                    <div class="col s4 ">
+                                        <img class="materialboxed circle responsive-img" width="350" id="photo" src="/images/pic-default.png">
+                                    </div>
+
+                                    <div class="col s5 offset-s1">
+
+                                        <div class="input-field ">
+                                            <i class="material-icons prefix grey-text text-darken-2">account_circle</i>
+                                            <input placeholder="Nama github" id="name" type="text" class="validate">
+                                            <label for="name">Nama User</label>
+                                        </div>
+
+                                        <div class="input-field ">
+                                            <i class="material-icons prefix grey-text text-darken-2">email</i>
+
+                                            <input placeholder="Email github" id="email" type="text" class="validate">
+                                            <label for="name">Email github</label>
+                                        </div>
+                                    </div>
+                                </div>
+
+
+                                <div class="row">
+                                    <div class="input-field col s5 offset-s5">
+                                        <i class="material-icons prefix grey-text text-darken-2">work</i>
+
+                                        <input placeholder="Url github" id="html_url" type="text" class="validate">
+                                        <label for="name">Url Github</label>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="input-field col s5 offset-s5">
+                                        <i class="material-icons prefix grey-text text-darken-2">place</i>
+
+                                        <input placeholder="Lokasi tempat tinggal" id="location" type="text" class="validate">
+                                        <label for="name">Lokasi</label>
+                                    </div>
+
+                                </div>
+
+
+                                <div class="row">
+                                    <div class="input-field col s5 offset-s5">
+                                        <i class="material-icons prefix grey-text text-darken-2">person</i>
+
+                                        <input placeholder="Jumlah pengikut" id="followers" type="text" class="validate">
+                                        <label for="name">Jumlah Follower</label>
+                                    </div>
+
+                                </div>
+
+                                <div class="row">
+                                    <div class="input-field col s5 offset-s5">
+                                        <i class="material-icons prefix grey-text text-darken-2">person</i>
+
+                                        <input placeholder="Jumlah mengikuti" id="following" type="text" class="validate">
+                                        <label for="name">Jumlah Mengikuti</label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </main>
+        </div>
+    </div>
+</body>
+
+
+{{> footer}}
+
+<script>
+    $("#btn-cari").click(function () {
+        Materialize.toast('Request ke github terkirim...', 4000);
+        $.get('/get-user', {
+            userId: $('#searchId').val()
+        }).done(function (data) {
+            Materialize.toast('Response diterima!', 4000);
+            console.log(data.name);
+            $('#name').val(data.name);
+            $('#email').val(data.email);
+            $('#html_url').val(data.html_url);
+            $('#location').val(data.location);
+            $('#followers').val(data.followers + ' Orang');
+            $('#following').val(data.following + ' Orang');
+
+            $('#photo').attr('src', data.avatar_url).load(function () {
+                this.width; // Note: $(this).width() will not work for in memory images
+
+            });
+
+        })
+
+    });
+
+
+    // Initialize collapse button
+    // $(".button-collapse").sideNav();
+    // Initialize collapsible (uncomment the line below if you use the dropdown variation)
+    //$('.collapsible').collapsible();
+</script>
+
+
+
+
+</html>

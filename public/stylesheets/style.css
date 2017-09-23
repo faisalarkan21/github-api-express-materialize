@@ -1,0 +1,120 @@
+body {
+  padding: 30px;
+  font: 14px "roboto", Helvetica, Arial, sans-serif;
+}
+
+a {
+  color: #00B7FF;
+}
+
+
+/*
+
+// arahan ganti2 color 
+
+/* label color 
+.input-field label {
+  color: #000;
+}
+/* label focus color 
+.input-field input[type=text]:focus + label {
+  color: #000 !important;
+}
+/* label underline focus color 
+.input-field input[type=text]:focus {
+  border-bottom: 1px solid #000;
+  box-shadow: 0 1px 0 0 #000;
+}
+/* valid color 
+.input-field input[type=text].valid {
+  border-bottom: 1px solid #000;
+  box-shadow: 0 1px 0 0 #000;
+}
+/* invalid color 
+.input-field input[type=text].invalid {
+  border-bottom: 1px solid #000;
+  box-shadow: 0 1px 0 0 #000;
+}
+/* icon prefix focus color 
+.input-field .prefix.active {
+  color: #000;
+} 
+
+*/
+
+.input-field input[type=text]:focus+label {
+  color: #424242 !important;
+}
+
+.input-field input[type=text]:focus {
+  border-bottom: 1px solid #616161 !important;
+  box-shadow: 0 1px 0 0 #616161 !important;
+}
+
+.prefix :focus {
+  border-bottom: 1px solid #eeeeee !important;
+  box-shadow: 0 1px 0 0 #eeeeee !important;
+}
+
+.input-field input[type=text].valid {
+  border-bottom: 1px solid #eeeeee !important;
+  box-shadow: 0 1px 0 0 #eeeeee !important;
+}
+
+@font-face {
+  font-family: 'Material Icons';
+  font-style: normal;
+  font-weight: 400;
+  src: url(/material-icons/MaterialIcons-Regular.eot);
+  /* For IE6-8 */
+  src: local('Material Icons'), local('MaterialIcons-Regular'), url(/material-icons/MaterialIcons-Regular.woff2) format('woff2'), url(/material-icons/MaterialIcons-Regular.woff) format('woff'), url(/material-icons/MaterialIcons-Regular.ttf) format('truetype');
+}
+
+.material-icons {
+  font-family: 'Material Icons';
+  font-weight: normal;
+  font-style: normal;
+  font-size: 24px;
+  /* Preferred icon size */
+  display: inline-block;
+  line-height: 1;
+  text-transform: none;
+  letter-spacing: normal;
+  word-wrap: normal;
+  white-space: nowrap;
+  direction: ltr;
+  /* Support for all WebKit browsers. */
+  -webkit-font-smoothing: antialiased;
+  /* Support for Safari and Chrome. */
+  text-rendering: optimizeLegibility;
+  /* Support for Firefox. */
+  -moz-osx-font-smoothing: grayscale;
+  /* Support for IE. */
+  font-feature-settings: 'liga';
+}
+
+#toast-container {
+  top: auto !important;
+  right: auto !important;
+  bottom: 70%;
+  left: 60%;
+}
+
+.side-nav {
+  transform: translateX(0%) !important;
+}
+
+header,
+main,
+footer {
+  padding-left: 160px;
+
+}
+
+@media only screen and (max-width: 992px) {
+  header,
+  main,
+  footer {
+    padding-left: 0;
+  }
+}
