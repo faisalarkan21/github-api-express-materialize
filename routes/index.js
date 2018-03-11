@@ -11,7 +11,7 @@ router.get('/', (req, res, next) => {
 router.get('/get-user', (req, res) => {
   const options = {
     headers: {
-      Authorization: 'token YOUR_TOKEN',
+      Authorization: 'token 90e91759abb8407475e81ed931163b71231b7cb6',
       'user-agent': 'node.js',
     },
   };
